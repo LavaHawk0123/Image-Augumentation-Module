@@ -12,7 +12,7 @@ import matplotlib.patches as patches
 import matplotlib
 import random
 
-
+# Driver Class for performing Transformations
 class imageTransforms:
 
     def __init__(self, img, index):
@@ -98,14 +98,14 @@ class imageTransforms:
         blurred_large = blurred = cv2.blur(self.img, (15, 15))
         return blurred_large
 
-#    def gaussian_noise(self):
-#        kernelSizes = [(15, 15), (30, 30), (45, 45)]
-#        count = 0
-#        for (kX, kY) in kernelSizes:
-#            count += 1
-#            blurred = cv2.GaussianBlur(self.img, (kX, kY), 0)
-#            cv2.imwrite(str('gaussian_blurred' + str(self.count_img))
-#                        + '_' + str(count) + '.png', blurred)
+    def gaussian_noise(self):
+        kernelSizes = [(15, 15), (30, 30), (45, 45)]
+        count = 0
+        for (kX, kY) in kernelSizes:
+            count += 1
+            blurred = cv2.GaussianBlur(self.img, (kX, kY), 0)
+            cv2.imwrite(str('gaussian_blurred' + str(self.count_img))
+                        + '_' + str(count) + '.png', blurred)
 
     def perspective_transforms(self):
         pts1 = np.float32([[100, 260], [640, 260], [0, 400], [640, 300]])
